@@ -8,7 +8,7 @@ namespace POCO
 {
     public class DevTeam
     {
-        public List<Developer> TeamMembers { get; set; } = new List<Developer>();
+        public List<Developer> _TeamMembers { get; set; } = new List<Developer>();
 
         public string TeamName { get; set; }
         public int TeamId { get; set; }
@@ -23,7 +23,16 @@ namespace POCO
 
         public void AddDeveloperToTeam(Developer newDeveloper)
         {
-            TeamMembers.Add(newDeveloper);
+            _TeamMembers.Add(newDeveloper);
+        }
+
+        public void RemoveDeveloperFromTeam(Developer oldDeveloper)
+        {
+            _TeamMembers.Remove(oldDeveloper);
+        }
+        public List<Developer> GetDevTeamMembers()
+        {
+            return _TeamMembers;
         }
     }
 }
